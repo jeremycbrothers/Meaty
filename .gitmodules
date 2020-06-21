@@ -1,0 +1,3 @@
+[submodule "Meaty/vendor"]
+	path = Meaty/vendor
+	url = https://github.com/gabime/spdlog
