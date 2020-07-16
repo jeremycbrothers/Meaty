@@ -10,3 +10,5 @@
 	#error This engine only supports Windows for now. Sorry.
 #endif
 
+// Bit shift 1 x number of places to the left
+#define BIT(x) (1 << x)
