@@ -24,12 +24,17 @@
     <ClInclude Include="src\Core\Events\Event.h">
       <Filter>Core\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Core\Events\KeyboardEvent.h">
+      <Filter>Core\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Events\MouseEvent.h">
+      <Filter>Core\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Core\Log.h">
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\Core\Events\KeyboardEvent.h" />
-    <ClInclude Include="src\Core\Events\WindowEvent.h" />
+    <ClInclude Include="src\mtpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Core\Application.cpp">
@@ -38,5 +43,6 @@
     <ClCompile Include="src\Core\Log.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\mtpch.cpp" />
   </ItemGroup>
 </Project>

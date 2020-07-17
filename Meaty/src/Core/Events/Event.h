@@ -1,28 +1,33 @@
 #pragma once
 
+#include "mtpch.h"
 #include "../Core.h"
-
-// Add these as pre compiled headers
-#include <string>
-#include <functional>
 
 namespace Meaty
 {
-	enum class EventTypes
+	enum class EventType
 	{
 		NONE = 0,
-		keydown, keyup, keyheld,
-		mousebutton_down, mousebutton_up,
-		window_resize, window_minimize, window_maximize
+		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
+		KeyPressed, KeyReleased,
+		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
 	enum EventCategories
 	{
 		NONE = 0,
-		KEYBOARD_EVENT = BIT(1),
-		MOUSE_EVENT   = BIT(2),
-		WINDOW_EVENT  = BIT(3)
+		M_Application = BIT(0),	
+		M_Input		= BIT(1),
+		M_Keyborad	= BIT(2),
+		M_Mouse		= BIT(3),
+		M_MouseButton	= BIT(4)
 	};
+
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
+							    virtual EventType GetEventType() const override { return GetStaticType(); }\
+							    virtual const char* GetName() const override { return #type; }
+
+#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
 	class MEATY_API Event
 	{
@@ -33,17 +38,48 @@ namespace Meaty
 			However, right now the design does not contain members do create said definitions. 
 			Consder making them ;)
 		*/
-		virtual Event GetEventType() const = 0;
-		virtual char* GetName() const = 0;
-		virtual int GetCategoryFlag() const = 0;
-		virtual std::string ToString() { return GetName(); }
+		virtual EventType GetEventType() const = 0;
+		virtual const char* GetName() const = 0;
+		virtual int GetCategoryFlags() const = 0;
+		virtual std::string ToString() const { return GetName(); }
+
+		inline bool IsInCategory(EventCategories category)
+		{
+			return GetCategoryFlags() & category;
+		}
 
 	private:
 		bool IsHandeled = false;
 	};
 
+	/**
+		TODO: Research and comment the syntax of this class as some things
+			  do not appear intuitive.
+	*/
 	class MEATY_API EventDispatcher
 	{
+		template<typename T>
+		using EventFn = std::function<bool(T&)>;
+	public:
+		EventDispatcher(Event& eventToDispatch) : currentEvent(eventToDispatch) {}
 
+		template<typename T>
+		bool Dispatch(EventFn<T> func)
+		{
+			if (currentEvent.GetEventType() == T::GetStaticType())
+			{
+				currentEvent.IsHandeled = func(*(T*)&currentEvent);
+				return true;
+			}
+			return false;
+		}
+
+	private:
+		Event& currentEvent;
 	};
+
+	inline std::ostream& operator<<(std::ostream& os, const Event& e)
+	{
+		return os << e.ToString();
+	}
 }

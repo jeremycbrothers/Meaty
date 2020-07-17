@@ -19,6 +19,9 @@ project "Meaty"
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("intermediate/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "mtpch.h"
+    pchsource "Meaty/src/mtpch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",
