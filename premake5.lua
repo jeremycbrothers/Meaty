@@ -11,6 +11,11 @@ workspace "Meaty"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Meaty/vendor/GLFW/include"
+
+include "Meaty/vendor/GLFW"
+
 project "Meaty"
     location "Meaty"
     kind "SharedLib"
@@ -31,7 +36,14 @@ project "Meaty"
     includedirs
     {
         "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/src"
+        "%{prj.name}/src",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"

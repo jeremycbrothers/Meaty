@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "Window.h"
 
 namespace Meaty
 {
@@ -12,6 +13,9 @@ namespace Meaty
 		virtual ~Application();
 		void Run();
 
+	private:
+		std::unique_ptr<Window>m_Window;
+		bool running = true;
 	};
 
 	// Defined by client application

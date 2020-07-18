@@ -1,48 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Core">
-      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
+    <Filter Include="Meaty">
+      <UniqueIdentifier>{456DA90D-B181-D1BE-7A03-751EE6D6CDEF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\Events">
-      <UniqueIdentifier>{52201B74-BED5-9369-47CA-8D40B37E8A6D}</UniqueIdentifier>
+    <Filter Include="Meaty\Events">
+      <UniqueIdentifier>{89D96076-753C-F01A-1EC2-28D10A04BC9D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms">
+      <UniqueIdentifier>{3f087f69-e5c3-4223-b42f-d0a9b424c812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\Microsoft">
+      <UniqueIdentifier>{12355c47-074a-42d0-8db7-354c70054ff0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Core\Application.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Core.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\EntryPoint.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Events\ApplicationEvent.h">
-      <Filter>Core\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Events\Event.h">
-      <Filter>Core\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Events\KeyboardEvent.h">
-      <Filter>Core\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Events\MouseEvent.h">
-      <Filter>Core\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Log.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\Meaty\Application.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\EntryPoint.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Events\ApplicationEvent.h">
+      <Filter>Meaty\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Events\Event.h">
+      <Filter>Meaty\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Events\KeyboardEvent.h">
+      <Filter>Meaty\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Events\MouseEvent.h">
+      <Filter>Meaty\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Log.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Window.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
     <ClInclude Include="src\mtpch.h" />
+    <ClInclude Include="src\Meaty\MSW_Win.h">
+      <Filter>Platforms\Microsoft</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Core\Application.cpp">
-      <Filter>Core</Filter>
+    <ClCompile Include="src\Meaty\Application.cpp">
+      <Filter>Meaty</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Log.cpp">
-      <Filter>Core</Filter>
+    <ClCompile Include="src\Meaty\Log.cpp">
+      <Filter>Meaty</Filter>
     </ClCompile>
     <ClCompile Include="src\mtpch.cpp" />
+    <ClCompile Include="src\Meaty\MSW_Win.cpp">
+      <Filter>Platforms\Microsoft</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

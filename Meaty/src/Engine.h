@@ -2,8 +2,7 @@
 
 // For Application use only!
 #include <stdio.h>
-#include "Core/Application.h"
-#include "Core/Log.h"
+#include "Meaty/Application.h"
 
 /** Entry point */
-#include "Core/EntryPoint.h"
+#include "Meaty/EntryPoint.h"
