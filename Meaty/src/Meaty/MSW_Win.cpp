@@ -1,9 +1,18 @@
 #include "mtpch.h"
 #include "MSW_Win.h"
+#include "Events/ApplicationEvent.h"
+#include "Events/KeyboardEvent.h"
+#include "Events/MouseEvent.h"
+#include <glad/glad.h>
 
 namespace Meaty
 {
 	static bool initialized = false;
+
+	static void GLFWErrorCallback(int Error, const char* Description)
+	{
+		MT_CORE_ERROR("GLFW Error ({0}): {1}", Error, Description);
+	}
 
 	Window* Window::Create(const WindowProperties& props)
 	{
@@ -70,15 +79,99 @@ namespace Meaty
 		if (!initialized)
 		{
 			int success = glfwInit();
-			MT_CORE_ASSERT(success, "Could not initialize GLFW")
+			MT_CORE_ASSERT(success, "Could not initialize GLFW");
+			glfwSetErrorCallback(GLFWErrorCallback);
 			initialized = true;
 		}
 
 		Window = glfwCreateWindow((int)WinData.Width, (int)WinData.Height, WinData.Title.c_str(), nullptr, nullptr);
 
 		glfwMakeContextCurrent(Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		MT_CORE_ASSERT(status, "Failed to initialize GLAD");
 		glfwSetWindowUserPointer(Window, &WinData);
 		SetVSync(true);
+
+		glfwSetWindowSizeCallback(Window, [](GLFWwindow* CallbackWindow, int CallbackWidth, int CallbackHeight)
+		{
+			WindowData& Data = *(WindowData*)glfwGetWindowUserPointer(CallbackWindow);
+			WindowResizeEvent ResizeEvent(CallbackWidth, CallbackHeight);
+			Data.CallbackFn(ResizeEvent);
+			Data.Width = CallbackWidth;
+			Data.Height = CallbackHeight;
+		});
+
+		glfwSetWindowCloseCallback(Window, [](GLFWwindow* CallbackWindow) 
+		{
+			WindowData& Data = *(WindowData*)glfwGetWindowUserPointer(CallbackWindow);
+			WindowCloseEvent CloseEvent;
+			Data.CallbackFn(CloseEvent);
+
+		});
+
+		glfwSetCursorPosCallback(Window, [](GLFWwindow* CallbackWindow, double XPos, double YPos) 
+		{
+			WindowData& Data = *(WindowData*)glfwGetWindowUserPointer(CallbackWindow);
+			MouseMovedEvent MouseMoveEvent((float)XPos, (float)YPos);
+			Data.CallbackFn(MouseMoveEvent);
+
+		});
+
+		glfwSetKeyCallback(Window, [](GLFWwindow* CallbackWindow, int Key, int ScanCode, int Action, int Mods)
+		{
+			WindowData& Data = *(WindowData*)glfwGetWindowUserPointer(CallbackWindow);
+			// switch on key code
+			switch (Action)
+			{
+				case GLFW_PRESS:
+				{
+					KeyPressedEvent KeyPressedEvent(Key, 0);
+					Data.CallbackFn(KeyPressedEvent);
+					break;
+				}
+				case GLFW_RELEASE:
+				{
+					KeyReleasedEvent KeyReleasedEvent(Key);
+					Data.CallbackFn(KeyReleasedEvent);
+					break;
+				}
+				case GLFW_REPEAT:
+				{
+					KeyPressedEvent KeyPressedEvent(Key, 1);
+					Data.CallbackFn(KeyPressedEvent);
+					break;
+				}
+			}
+		});
+
+		glfwSetMouseButtonCallback(Window, [](GLFWwindow* CallbackWindow, int Button, int Action, int Mods)
+		{
+			WindowData& Data = *(WindowData*)glfwGetWindowUserPointer(CallbackWindow);
+			// switch on button
+			switch (Action)
+			{
+				case GLFW_PRESS:
+				{
+					MouseButtonPressedEvent MouseButtonPressedEvent(Button);
+					Data.CallbackFn(MouseButtonPressedEvent);
+					break;
+				}
+				case GLFW_RELEASE:
+				{	MouseButtonReleasedEvent MouseButtonReleasedEvent(Button);
+					Data.CallbackFn(MouseButtonReleasedEvent);
+					break;
+				}
+			}
+
+		});
+
+		glfwSetScrollCallback(Window, [](GLFWwindow* CallbackWindow, double XOffset, double YOffset) 
+		{
+			WindowData& Data = *(WindowData*)glfwGetWindowUserPointer(CallbackWindow);
+			MouseScrolledEvent MouseScrolledEvent((float)XOffset, (float)YOffset);
+			Data.CallbackFn(MouseScrolledEvent);
+
+		});
 	}
 
 	void Meaty::MSW_Win::Shutdown()

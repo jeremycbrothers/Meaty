@@ -74,11 +74,12 @@ namespace Meaty
 			return ss.str();
 		}
 
-		EVENT_CLASS_CATEGORY(MouseButtonPressed)
+		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
 	class MEATY_API MouseButtonReleasedEvent : public MouseButtonEvent 
 	{
+	public:
 		MouseButtonReleasedEvent(int button) : MouseButtonEvent(button) {}
 
 		std::string ToString() const override
@@ -88,7 +89,7 @@ namespace Meaty
 			return ss.str();
 		}
 
-		EVENT_CLASS_CATEGORY(MouseButtonReleased)
+		EVENT_CLASS_TYPE(MouseButtonReleased)
 	};
 
 }

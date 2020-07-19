@@ -48,7 +48,6 @@ namespace Meaty
 			return GetCategoryFlags() & category;
 		}
 
-	private:
 		bool IsHandeled = false;
 	};
 

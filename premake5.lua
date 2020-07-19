@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Meaty/vendor/GLFW/include"
+IncludeDir["Glad"] = "Meaty/vendor/glad/include"
 
 include "Meaty/vendor/GLFW"
+include "Meaty/vendor/glad"
 
 project "Meaty"
     location "Meaty"
@@ -37,12 +39,14 @@ project "Meaty"
     {
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.Glad}"
     }
 
     links
     {
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
 
@@ -54,7 +58,8 @@ project "Meaty"
         defines
         {
             "MT_WINDOWS_PLATFORM",
-            "MT_BUILD_DLL"
+            "MT_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
@@ -64,14 +69,17 @@ project "Meaty"
 
     filter "configurations:Debug"
         defines "MT_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "MT_RELEASE"
+        buildoptions "/MD"
         optimize "On"
         
     filter "configurations:Dist"
         defines "MT_DIST"
+        buildoptions "/MD"
         optimize "On"
 
 project "sandbox"
@@ -111,14 +119,17 @@ project "sandbox"
 
     filter "configurations:Debug"
         defines "MT_DEBUG"
+        buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "MT_RELEASE"
+        buildoptions "/MD"
         optimize "On"
         
     filter "configurations:Dist"
         defines "MT_DIST"
+        buildoptions "/MD"
         optimize "On"
 
         
