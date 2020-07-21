@@ -9,7 +9,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Meaty/Log.h"
+#include "Meaty/Core/Log.h"
 
 #ifdef MT_WINDOWS_PLATFORM
 #include <Windows.h>

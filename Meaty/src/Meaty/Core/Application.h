@@ -2,9 +2,9 @@
 
 #include "Core.h"
 #include "Window.h"
-#include "Meaty/LayerStack.h"
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "Meaty/Core/LayerStack.h"
+#include "Meaty/Events/Event.h"
+#include "Meaty/Events/ApplicationEvent.h"
 #include "Meaty/ImGUI/ImGuiLayer.h"
 
 namespace Meaty

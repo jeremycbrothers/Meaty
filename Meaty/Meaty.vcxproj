@@ -152,30 +152,35 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Meaty\Core\Input.h" />
+    <ClInclude Include="src\Meaty\Core\KeyboardCodes.h" />
+    <ClInclude Include="src\Meaty\Core\MouseCodes.h" />
+    <ClInclude Include="src\Platform\Microsoft\MSW_Input.h" />
     <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\Meaty\Application.h" />
-    <ClInclude Include="src\Meaty\Core.h" />
-    <ClInclude Include="src\Meaty\EntryPoint.h" />
+    <ClInclude Include="src\Meaty\Core\Application.h" />
+    <ClInclude Include="src\Meaty\Core\Core.h" />
+    <ClInclude Include="src\Meaty\Core\EntryPoint.h" />
     <ClInclude Include="src\Meaty\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Meaty\Events\Event.h" />
     <ClInclude Include="src\Meaty\Events\KeyboardEvent.h" />
     <ClInclude Include="src\Meaty\Events\MouseEvent.h" />
     <ClInclude Include="src\Meaty\ImGUI\ImGuiLayer.h" />
-    <ClInclude Include="src\Meaty\Inupt.h" />
-    <ClInclude Include="src\Meaty\Layer.h" />
-    <ClInclude Include="src\Meaty\LayerStack.h" />
-    <ClInclude Include="src\Meaty\Log.h" />
-    <ClInclude Include="src\Meaty\Window.h" />
+    <ClInclude Include="src\Meaty\Core\Layer.h" />
+    <ClInclude Include="src\Meaty\Core\LayerStack.h" />
+    <ClInclude Include="src\Meaty\Core\Log.h" />
+    <ClInclude Include="src\Meaty\Core\Window.h" />
     <ClInclude Include="src\Platform\Microsoft\MSW_Win.h" />
     <ClInclude Include="src\mtpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Meaty\Application.cpp" />
+    <ClCompile Include="src\Meaty\Core\Input.cpp" />
+    <ClCompile Include="src\Platform\Microsoft\MSW_Input.cpp" />
+    <ClCompile Include="src\Meaty\Core\Application.cpp" />
     <ClCompile Include="src\Meaty\ImGUI\ImGuiBuild.cpp" />
     <ClCompile Include="src\Meaty\ImGUI\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Meaty\Layer.cpp" />
-    <ClCompile Include="src\Meaty\LayerStack.cpp" />
-    <ClCompile Include="src\Meaty\Log.cpp" />
+    <ClCompile Include="src\Meaty\Core\Layer.cpp" />
+    <ClCompile Include="src\Meaty\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Meaty\Core\Log.cpp" />
     <ClCompile Include="src\Platform\Microsoft\MSW_Win.cpp" />
     <ClCompile Include="src\mtpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

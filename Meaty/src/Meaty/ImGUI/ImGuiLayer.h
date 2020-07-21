@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Meaty/Layer.h"
+#include "Meaty/Core/Layer.h"
 #include "Meaty/Events/ApplicationEvent.h"
 #include "Meaty/Events/KeyboardEvent.h"
 #include "Meaty/Events/MouseEvent.h"

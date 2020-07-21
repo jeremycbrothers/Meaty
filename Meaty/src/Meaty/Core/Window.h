@@ -3,7 +3,7 @@
 #include "mtpch.h"
 
 #include "Core.h"
-#include "Events/Event.h"
+#include "Meaty/Events/Event.h"
 
 namespace Meaty
 {

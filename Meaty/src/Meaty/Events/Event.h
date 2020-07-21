@@ -1,7 +1,7 @@
 #pragma once
 
 #include "mtpch.h"
-#include "../Core.h"
+#include "Meaty/Core/Core.h"
 
 namespace Meaty
 {

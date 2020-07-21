@@ -1,5 +1,6 @@
 #include "mtpch.h"
 #include "Application.h"
+#include "Input.h"
 #include <GLFW/glfw3.h>
 
 namespace Meaty
@@ -40,6 +41,13 @@ namespace Meaty
 				layer->OnImGuiRender();
 			}
 			imGuiLayer->End();
+
+			// Input testing
+			//float xpos = Input::GetMousePos().first;
+			//float ypos = Input::GetMousePos().second;
+
+			//MT_CORE_INFO("Mouse position x: {0}", xpos);
+			//MT_CORE_INFO("Mouse position y: {0}", ypos);
 
 			m_Window->OnUpdate();
 		}

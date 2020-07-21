@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Meaty/Core.h"
+#include "Meaty/Core/Core.h"
 #include "Meaty/Events/Event.h"
 #include "Layer.h"
 #include <vector>

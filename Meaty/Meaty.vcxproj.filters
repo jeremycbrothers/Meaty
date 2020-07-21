@@ -19,15 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\Meaty\Application.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Meaty\Core.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Meaty\EntryPoint.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
     <ClInclude Include="src\Meaty\Events\ApplicationEvent.h">
       <Filter>Meaty\Events</Filter>
     </ClInclude>
@@ -43,48 +34,68 @@
     <ClInclude Include="src\Meaty\ImGUI\ImGuiLayer.h">
       <Filter>Meaty\ImGUI</Filter>
     </ClInclude>
-    <ClInclude Include="src\Meaty\Inupt.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Meaty\Layer.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Meaty\LayerStack.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Meaty\Log.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Meaty\Window.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platform\Microsoft\MSW_Win.h">
       <Filter>Platform\Microsoft</Filter>
     </ClInclude>
     <ClInclude Include="src\mtpch.h" />
+    <ClInclude Include="src\Meaty\Core\Application.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core\Core.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core\EntryPoint.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core\Layer.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core\LayerStack.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core\Log.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core\Window.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core\Input.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Microsoft\MSW_Input.h">
+      <Filter>Platform\Microsoft</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Core\KeyboardCodes.h" />
+    <ClInclude Include="src\Meaty\Core\MouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Meaty\Application.cpp">
-      <Filter>Meaty</Filter>
-    </ClCompile>
     <ClCompile Include="src\Meaty\ImGUI\ImGuiBuild.cpp">
       <Filter>Meaty\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Meaty\ImGUI\ImGuiLayer.cpp">
       <Filter>Meaty\ImGUI</Filter>
     </ClCompile>
-    <ClCompile Include="src\Meaty\Layer.cpp">
-      <Filter>Meaty</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Meaty\LayerStack.cpp">
-      <Filter>Meaty</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Meaty\Log.cpp">
-      <Filter>Meaty</Filter>
-    </ClCompile>
     <ClCompile Include="src\Platform\Microsoft\MSW_Win.cpp">
       <Filter>Platform\Microsoft</Filter>
     </ClCompile>
     <ClCompile Include="src\mtpch.cpp" />
+    <ClCompile Include="src\Meaty\Core\Application.cpp">
+      <Filter>Meaty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Meaty\Core\Layer.cpp">
+      <Filter>Meaty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Meaty\Core\LayerStack.cpp">
+      <Filter>Meaty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Meaty\Core\Log.cpp">
+      <Filter>Meaty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Meaty\Core\Input.cpp">
+      <Filter>Meaty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Microsoft\MSW_Input.cpp">
+      <Filter>Platform\Microsoft</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

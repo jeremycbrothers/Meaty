@@ -7,12 +7,15 @@ public:
 
 	void OnUpdate() override
 	{
-		MT_CLIENT_INFO("Example layer: Update");
+		//MT_CLIENT_INFO("Example layer: Update");
+
+		if (Meaty::Input::IsKeyPressed(MT_KEY_TAB))
+			MT_CLIENT_TRACE("Tab key pressed.");
 	}
 
 	void OnEvent(Meaty::Event& e) override
 	{
-		MT_CLIENT_INFO("{0}", e);
+		//MT_CLIENT_INFO("{0}", e);
 	}
 };
 
