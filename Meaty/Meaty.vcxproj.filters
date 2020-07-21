@@ -7,6 +7,15 @@
     <Filter Include="Meaty\Events">
       <UniqueIdentifier>{89D96076-753C-F01A-1EC2-28D10A04BC9D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Meaty\ImGUI">
+      <UniqueIdentifier>{EFFDC1A6-5BB3-3A9C-E4A7-3473505C31A0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Microsoft">
+      <UniqueIdentifier>{EF61CD75-DB45-8ECB-44A6-881E30A9784D}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine.h" />
@@ -31,6 +40,12 @@
     <ClInclude Include="src\Meaty\Events\MouseEvent.h">
       <Filter>Meaty\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Meaty\ImGUI\ImGuiLayer.h">
+      <Filter>Meaty\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Meaty\Inupt.h">
+      <Filter>Meaty</Filter>
+    </ClInclude>
     <ClInclude Include="src\Meaty\Layer.h">
       <Filter>Meaty</Filter>
     </ClInclude>
@@ -40,17 +55,23 @@
     <ClInclude Include="src\Meaty\Log.h">
       <Filter>Meaty</Filter>
     </ClInclude>
-    <ClInclude Include="src\Meaty\MSW_Win.h">
-      <Filter>Meaty</Filter>
-    </ClInclude>
     <ClInclude Include="src\Meaty\Window.h">
       <Filter>Meaty</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Microsoft\MSW_Win.h">
+      <Filter>Platform\Microsoft</Filter>
     </ClInclude>
     <ClInclude Include="src\mtpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Meaty\Application.cpp">
       <Filter>Meaty</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Meaty\ImGUI\ImGuiBuild.cpp">
+      <Filter>Meaty\ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Meaty\ImGUI\ImGuiLayer.cpp">
+      <Filter>Meaty\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Meaty\Layer.cpp">
       <Filter>Meaty</Filter>
@@ -61,8 +82,8 @@
     <ClCompile Include="src\Meaty\Log.cpp">
       <Filter>Meaty</Filter>
     </ClCompile>
-    <ClCompile Include="src\Meaty\MSW_Win.cpp">
-      <Filter>Meaty</Filter>
+    <ClCompile Include="src\Platform\Microsoft\MSW_Win.cpp">
+      <Filter>Platform\Microsoft</Filter>
     </ClCompile>
     <ClCompile Include="src\mtpch.cpp" />
   </ItemGroup>

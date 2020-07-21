@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Window.h"
 #include "Meaty/Window.h"
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 namespace Meaty
@@ -14,10 +14,12 @@ namespace Meaty
 
 		void OnUpdate() override;
 		inline unsigned int GetWidth() const override;
-		inline unsigned int GetHight() const override;
+		inline unsigned int GetHeight() const override;
 		inline void SetEventCallback(const EventCallbackFN& callbackFN) override;
 		void SetVSync(bool enabled) override;
 		bool IsVSyncEnabled() const override;
+
+		inline virtual void* GetNativeWindow() const { return Window; }
 
 	private:
 		virtual void Init(const WindowProperties properties);

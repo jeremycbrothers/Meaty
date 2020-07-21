@@ -12,11 +12,13 @@ workspace "Meaty"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "Meaty/vendor/GLFW/include"
 IncludeDir["Glad"] = "Meaty/vendor/glad/include"
+IncludeDir["GLFW"] = "Meaty/vendor/GLFW/include"
+IncludeDir["ImGui"] = "Meaty/vendor/imgui"
 
 include "Meaty/vendor/GLFW"
 include "Meaty/vendor/glad"
+include "Meaty/vendor/imgui"
 
 project "Meaty"
     location "Meaty"
@@ -39,14 +41,16 @@ project "Meaty"
     {
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
+        "%{IncludeDir.Glad}",
         "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}"
+        "%{IncludeDir.ImGui}"
     }
 
     links
     {
-        "GLFW",
         "Glad",
+        "GLFW",
+        "ImGui",
         "opengl32.lib"
     }
 
@@ -58,8 +62,7 @@ project "Meaty"
         defines
         {
             "MT_WINDOWS_PLATFORM",
-            "MT_BUILD_DLL",
-            "GLFW_INCLUDE_NONE"
+            "MT_BUILD_DLL"
         }
 
         postbuildcommands

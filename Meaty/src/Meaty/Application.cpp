@@ -4,10 +4,18 @@
 
 namespace Meaty
 {
+	Application* Application::instance = nullptr;
+
 	Meaty::Application::Application()
 	{
+		MT_CORE_ASSERT(!application, "Application already exists");
+		instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+
+		imGuiLayer = new ImGuiLayer();
+		PushOverlay(imGuiLayer);
 	}
 
 	Meaty::Application::~Application()
@@ -18,13 +26,20 @@ namespace Meaty
 	{
 		while (running)
 		{
-			//glClearColor(1, 0, 1, 1);
-			//glClear(GL_COLOR_BUFFER_BIT);
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
 			
 			for (Layer* layer : layerStack)
 			{
 				layer->OnUpdate();
 			}
+
+			imGuiLayer->Begin();
+			for (Layer* layer : layerStack)
+			{
+				layer->OnImGuiRender();
+			}
+			imGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}
@@ -48,11 +63,13 @@ namespace Meaty
 	void Application::PushLayer(Layer* layer)
 	{
 		layerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		layerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 	 
 	bool Application::OnWindowClose(WindowCloseEvent& e)

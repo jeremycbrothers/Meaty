@@ -23,6 +23,6 @@ namespace Meaty
 
 	private:
 		std::vector<Layer*> layers;
-		std::vector<Layer*>::iterator layerInsert;
+		unsigned int LayerInsertIndex = 0;
 	};
 }

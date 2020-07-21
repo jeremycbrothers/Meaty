@@ -21,6 +21,10 @@ void Meaty::Layer::OnUpdate()
 {
 }
 
+void Meaty::Layer::OnImGuiRender()
+{
+}
+
 void Meaty::Layer::OnEvent(Event& e)
 {
 }

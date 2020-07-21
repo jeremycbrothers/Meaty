@@ -5,7 +5,6 @@ namespace Meaty
 {
 	Meaty::LayerStack::LayerStack()
 	{
-		layerInsert = layers.begin();
 	}
 
 	Meaty::LayerStack::~LayerStack()
@@ -18,7 +17,8 @@ namespace Meaty
 
 	void Meaty::LayerStack::PushLayer(Layer* layer)
 	{
-		layerInsert = layers.emplace(layerInsert, layer);
+		layers.emplace(layers.begin() + LayerInsertIndex, layer);
+		LayerInsertIndex++;
 	}
 
 	void Meaty::LayerStack::PushOverlay(Layer* overlay)
@@ -32,7 +32,7 @@ namespace Meaty
 		if (iterator != layers.end())
 		{
 			layers.erase(iterator);
-			layerInsert--;
+			LayerInsertIndex--;
 		}
 	}
 

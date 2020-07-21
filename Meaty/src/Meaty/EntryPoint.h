@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 	MT_CORE_WARN("Initialized Log!");
 	MT_CLIENT_WARN("Initialized Client Log!");
 	
-	printf("Meaty Engine");
+	printf("Meaty Engine\n");
 	auto app = Meaty::CreateApplication();
 	app->Run();
 	delete app;

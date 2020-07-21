@@ -5,3 +5,5 @@ intermediate/
 
 # Files
 *.user
+
+!Meaty/vendor/imgui

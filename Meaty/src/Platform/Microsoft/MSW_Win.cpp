@@ -1,9 +1,8 @@
 #include "mtpch.h"
 #include "MSW_Win.h"
-#include "Events/ApplicationEvent.h"
-#include "Events/KeyboardEvent.h"
-#include "Events/MouseEvent.h"
-#include <glad/glad.h>
+#include "Meaty/Events/ApplicationEvent.h"
+#include "Meaty/Events/KeyboardEvent.h"
+#include "Meaty/Events/MouseEvent.h"
 
 namespace Meaty
 {
@@ -40,7 +39,7 @@ namespace Meaty
 		return WinData.Width;
 	}
 
-	unsigned int Meaty::MSW_Win::GetHight() const
+	unsigned int Meaty::MSW_Win::GetHeight() const
 	{
 		return WinData.Height;
 	}
